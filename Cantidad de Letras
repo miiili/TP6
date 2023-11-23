@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+
+int contarLetras(char letra, const char *cadena) {
+	int contador = 0;
+	
+	while (*cadena != '\0') {
+		if (*cadena == letra) {
+			contador++;
+		}
+		cadena++;
+	}
+	
+	return contador;
+}
+
+int main() {
+	char letra;
+	char cadena[100];
+	
+	printf("Ingrese una letra: ");
+	scanf(" %c", &letra);
+	
+	printf("Ingrese una cadena de caracteres: ");
+	scanf(" %99[^\n]", cadena);
+	
+	int cantidad = contarLetras(letra, cadena);
+	
+	printf("La letra '%c' aparece %d veces en la cadena.\n", letra, cantidad);
+	
+	return 0;
+}

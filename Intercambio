@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+
+void intercambio(int *x1, int *x2) {
+	int temp = *x1;
+	*x1 = *x2;
+	*x2 = temp;
+}
+
+int main() {
+	int X1, X2;
+	
+	printf("Ingresa el valor de X1: ");
+	scanf("%d", &X1);
+	printf("Ingresa el valor de X2: ");
+	scanf("%d", &X2);
+	
+	printf("Valores originales: X1 = %d, X2 = %d\n", X1, X2);
+	
+	
+	intercambio(&X1, &X2);
+	
+	printf("Valores intercambiados: X1 = %d, X2 = %d\n", X1, X2);
+	
+	return 0;
+}

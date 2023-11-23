@@ -1,0 +1,44 @@
+
+#include <math.h>
+#include <stdio.h>
+#include <stdio.h>
+#include <math.h>
+
+
+typedef struct {
+	double real;
+	double imag;
+} Complejo;
+
+void rectangular_polar(Complejo rect, double *magnitud, double *angulo) {
+	*magnitud = sqrt(rect.real * rect.real + rect.imag * rect.imag);
+	*angulo = atan2(rect.imag, rect.real);
+}
+
+void polar_rectangular(double magnitud, double angulo, Complejo *rect) {
+	rect->real = magnitud * cos(angulo);
+	rect->imag = magnitud * sin(angulo);
+}
+
+int main() {
+	Complejo rectangular;
+	double magnitud, angulo;
+	
+	rectangular.real = 3.0;
+	rectangular.imag = 4.0;
+	
+	rectangular_polar(rectangular, &magnitud, &angulo);
+	
+	
+	printf("Forma rectangular: %.2lf + %.2lfi\n", rectangular.real, rectangular.imag);
+	printf("Forma polar: Magnitud = %.2lf, Angulo = %.2lf radianes\n", magnitud, angulo);
+	
+	
+	Complejo convertido;
+	polar_rectangular(magnitud, angulo, &convertido);
+	
+	
+	printf("Convertido de polar a rectangular: %.2lf + %.2lfi\n", convertido.real, convertido.imag);
+	
+	return 0;
+}
